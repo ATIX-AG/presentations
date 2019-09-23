@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Create directory
+      file:
+        path: /tmp/ansible_speed
+        state: directory
+
+    - name: Create Files
+      include: create_file.yaml
+      loop: "{{ range(0, 20)|list  }}"
+
+    - name: Remove directory
+      file:
+        path: /tmp/ansible_speed
+        state: absent

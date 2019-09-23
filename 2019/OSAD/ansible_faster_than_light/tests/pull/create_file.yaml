@@ -1,0 +1,4 @@
+- name: "Create file {{ item }}"
+  copy:
+    content: "{{ item }}"
+    dest: "/tmp/ansible_speed/{{ item }}"
